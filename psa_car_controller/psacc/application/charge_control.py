@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 
 class ChargeControl:
-    MQTT_TIMEOUT = 60
+    MQTT_TIMEOUT = 300
 
     def __init__(self, psacc: PSAClient, vin, percentage_threshold, stop_hour):
         self.vin = vin
@@ -24,7 +24,7 @@ class ChargeControl:
         self.set_stop_hour(stop_hour)
         self.psacc = psacc
         self.retry_count = 0
-        self.wakeup_timeout = 10
+        self.wakeup_timeout = 600
 
     def set_stop_hour(self, stop_hour):
         if stop_hour is None or stop_hour == [0, 0]:
@@ -62,7 +62,7 @@ class ChargeControl:
         # force update if the car doesn't send info during 10 minutes
         last_update = self.psacc.vehicles_list.get_car_by_vin(self.vin).get_status().get_energy('Electric').updated_at
         if quick_refresh:
-            wakeup_timeout = self.wakeup_timeout / 2
+            wakeup_timeout = self.wakeup_timeout
         else:
             wakeup_timeout = self.wakeup_timeout
         if (datetime.utcnow().replace(tzinfo=pytz.UTC) - last_update).total_seconds() > 60 * wakeup_timeout:
