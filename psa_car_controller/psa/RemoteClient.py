@@ -96,7 +96,7 @@ class RemoteClient:
                 if car and car.status.get_energy('Electric').charging.status != INPROGRESS:
                     # fix a psa server bug where charge beginning without status api being properly updated
                     logger.warning("charge begin but API isn't updated")
-                    time.sleep(60)
+                    time.sleep(600)
                     self.wakeup(vin)
             except (IndexError, AttributeError, RateLimitException):
                 logger.exception("on_mqtt_message:")
