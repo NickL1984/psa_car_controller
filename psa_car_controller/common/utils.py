@@ -3,7 +3,7 @@ from threading import Semaphore, Timer
 from typing import List
 
 import requests
-TIMEOUT_IN_S = 10
+TIMEOUT_IN_S = 30
 
 
 def rate_limit(limit, every):
