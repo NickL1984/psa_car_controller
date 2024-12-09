@@ -24,7 +24,7 @@ class ChargeControl:
         self.set_stop_hour(stop_hour)
         self.psacc = psacc
         self.retry_count = 0
-        self.wakeup_timeout = 600
+        self.wakeup_timeout = 1200
 
     def set_stop_hour(self, stop_hour):
         if stop_hour is None or stop_hour == [0, 0]:
