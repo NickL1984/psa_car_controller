@@ -63,7 +63,7 @@ class PSAClient:
         self.weather_api = weather_api
         self.brand = brand
         self.info_callback = []
-        self.info_refresh_rate = 120
+        self.info_refresh_rate = 1200
         if abrp is None:
             self.abrp = Abrp()
         else:
