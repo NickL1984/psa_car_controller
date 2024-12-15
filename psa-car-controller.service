@@ -1,6 +1,6 @@
 # add user with this command: adduser --system --no-create-home psa
 [Unit]
-Description=PSA Controller
+Description=PSA Controller Nick
 After=network-online.target
 
 [Service]
