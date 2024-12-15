@@ -77,7 +77,7 @@ class PSACarController(metaclass=Singleton):
     def load_app(self) -> bool:
         my_logger(handler_level=int(self.args.debug))
 
-        logger.info("App version %s", __version__)
+        logger.info("App version Nick %s", __version__)
         if self.args.config:
             self.config_name = self.args.config
         if path.isfile(self.config_name):
